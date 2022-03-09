@@ -26,8 +26,8 @@ public class BoardScreen extends JPanel {
     int currPlayer = 0;
     ArrayList<Portal> portals;
     ArrayList<Player> players;
-    int x;
-    int y;
+    int num1;
+    int num2;
     JLabel success;
     JButton roll;
 
@@ -104,9 +104,9 @@ public class BoardScreen extends JPanel {
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        x = y = 8;
+        num1 = num2 = 8;
 
-        bd = new BoardDrawing(x, y, this);
+        bd = new BoardDrawing(num1, num2, this);
         bd.setVisible(true);
         //bd.setSize(getSize());
 
@@ -155,7 +155,7 @@ public class BoardScreen extends JPanel {
                 players.get(currPlayer).incPlayerScore(1);
 
                 for (Player p : players) {
-                    if (p.getPosition() >= x * y - 1) {
+                    if (p.getPosition() >= num1 * num2 - 1) {
                         success.setText("And the winner is: " + p.getName() + "\nYour score: " + p.getPlayerScore());
                         roll.setVisible(false);
                     }
